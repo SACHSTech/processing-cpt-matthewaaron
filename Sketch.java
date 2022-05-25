@@ -30,6 +30,9 @@ public class Sketch extends PApplet {
 
     stroke(255);
     line(50, 125, 70, 50);  
+
+    //This is a test line
+    System.out.println("Hello World");
   }
   
   // define other methods down here.
