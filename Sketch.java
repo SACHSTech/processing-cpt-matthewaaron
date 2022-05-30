@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Sketch extends PApplet {
 	
@@ -26,6 +27,9 @@ public class Sketch extends PApplet {
         int boxX = (boxWidth * row);
         int boxY = (boxHeight * column);
 
+
+        strokeWeight(10);
+        noFill();
         rect(boxX,boxY,boxWidth,boxHeight);
       }
     }
