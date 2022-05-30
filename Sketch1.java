@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Sketch1 extends PApplet {
 	
@@ -11,20 +12,23 @@ public class Sketch1 extends PApplet {
   int boxWidth = 200;
   int boxHeight = 200;
 
-  public void settings() {
+  int backgroundCount = 0;
 
-    size(400, 400);
+  PImage uwuBg;
+
+  public void settings() {
+    size(800, 800);
+    uwuBg = loadImage("uwu.png");
   }
 
 
   public void setup() {
-    background(210, 255, 173);
+    //background(210, 255, 173);
+    image(uwuBg, 0, 0);
   }
 
 
   public void draw() {
-	  
-
   for(row = 0; row < rowCount; row++){
     for(column = 0; column < colCount; column++){
 
@@ -39,5 +43,17 @@ public class Sketch1 extends PApplet {
   }
   }
   
-  // define other methods down here.
+  public void keyPressed(){
+
+    if (key == 'B'){
+
+      backgroundCount++;
+      if(backgroundCount>3){
+        backgroundCount = 0;
+      }
+
+    }
+
+
+  }
 }
