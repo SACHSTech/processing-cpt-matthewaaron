@@ -1,38 +1,74 @@
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Sketch1 extends PApplet {
 	
-	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
+	int row = 0;
+  int column = 0;
+
+  int rowCount = 3;
+  int colCount = 3;
+
+  int boxWidth = 200;
+  int boxHeight = 200;
+
+  int backgroundCount = 0;
+
+  PImage uwuBg;
+  PImage pain;
+  PImage cart;
+
+
   public void settings() {
-	// put your size call here
-    size(400, 400);
+    size(800, 800);
+    uwuBg = loadImage("uwu.png");
+    pain = loadImage("pain.png");
+    cart = loadImage("cart.png");
   }
 
-  /** 
-   * Called once at the beginning of execution.  Add initial set up
-   * values here i.e background, stroke, fill etc.
-   */
+
   public void setup() {
-    background(210, 255, 173);
-  }
-
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
-  public void draw() {
-	  
-	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
-
-    stroke(255);
-    line(50, 125, 70, 50);  
-
+    //background(210, 255, 173);
     
   }
+
+
+  public void draw() {
+    
+    if(backgroundCount == 0){
+      image(pain, 0, 0);
+    }
+    if(backgroundCount == 1){
+      image(cart, 0, 0);
+    }
+    if(backgroundCount == 2){
+      image(uwuBg,0,0);
+    }
+  for(row = 0; row < rowCount; row++){
+    for(column = 0; column < colCount; column++){
+
+      int boxX = (boxWidth * row);
+      int boxY = (boxHeight * column);
+      stroke(random(0,255), random(0, 255), random(0, 255));
+      strokeWeight(10);
+      noFill();
+      rect(boxX,boxY,boxWidth,boxHeight);
+    }
+  }
+  }
   
-  // define other methods down here.
+  public void keyPressed(){
+
+    if (key == 'b'){
+
+      backgroundCount++;
+      System.out.println(backgroundCount);
+      if(backgroundCount>=3){
+        backgroundCount = 0;
+      }
+
+    }
+
+
+  }
 }
