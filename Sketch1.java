@@ -30,6 +30,8 @@ public class Sketch1 extends PApplet {
 
     stroke(255);
     line(50, 125, 70, 50);  
+
+    
   }
   
   // define other methods down here.
