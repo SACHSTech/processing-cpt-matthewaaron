@@ -25,11 +25,10 @@ public class Sketch2 extends PApplet {
   public void draw() {
 	  
 	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
-
-    stroke(255);
-    line(50, 125, 70, 50);  
+     
+    textSize(144);
+    text(key, 110, 180);
+    
   }
   
   // define other methods down here.
