@@ -12,29 +12,64 @@ public class Sketch extends PApplet {
   int boxWidth = 200;
   int boxHeight = 200;
 
+  int backgroundCount = 0;
+
+  PImage uwuBg;
+  PImage pain;
+  PImage cart;
+
+
   public void settings() {
     size(800, 800);
+    uwuBg = loadImage("uwu.png");
+    pain = loadImage("pain.png");
+    cart = loadImage("cart.png");
   }
+
 
   public void setup() {
-    background(210, 255, 173);
+    //background(210, 255, 173);
+    
   }
+
 
   public void draw() {
-    for(row = 0; row < rowCount; row++){
-      for(column = 0; column < colCount; column++){
-
-        int boxX = (boxWidth * row);
-        int boxY = (boxHeight * column);
-
-
-        strokeWeight(10);
-        noFill();
-        rect(boxX,boxY,boxWidth,boxHeight);
-      }
+    
+    if(backgroundCount == 0){
+      image(pain, 0, 0);
     }
+    if(backgroundCount == 1){
+      image(cart, 0, 0);
+    }
+    if(backgroundCount == 2){
+      image(uwuBg,0,0);
+    }
+  for(row = 0; row < rowCount; row++){
+    for(column = 0; column < colCount; column++){
 
+      int boxX = (boxWidth * row);
+      int boxY = (boxHeight * column);
+
+      stroke(255,0,0);
+      strokeWeight(10);
+      noFill();
+      rect(boxX,boxY,boxWidth,boxHeight);
+    }
+  }
   }
   
-  // define other methods down here.
+  public void keyPressed(){
+
+    if (key == 'b'){
+
+      backgroundCount++;
+      System.out.println(backgroundCount);
+      if(backgroundCount>=3){
+        backgroundCount = 0;
+      }
+
+    }
+
+
+  }
 }
