@@ -14,6 +14,13 @@ public class Sketch1 extends PApplet {
 
   int backgroundCount = 0;
 
+  boolean exWin = false;
+  boolean ohWin = false;
+  int exWincounter = 0;
+  int ohWincounter = 0;
+  String exWinStatement = "X Wins: ";
+  String ohWinStatement = "O Wins: ";
+
   PImage uwuBg;
   PImage pain;
   PImage cart;
@@ -44,6 +51,7 @@ public class Sketch1 extends PApplet {
     if(backgroundCount == 2){
       image(uwuBg,0,0);
     }
+    winCounter();
   for(row = 0; row < rowCount; row++){
     for(column = 0; column < colCount; column++){
 
@@ -70,6 +78,24 @@ public class Sketch1 extends PApplet {
 
     }
 
+
+  }
+
+  public void winCounter(){
+
+
+    textSize(50);
+    fill(255,0,0);
+    text(exWinStatement,0,700);
+    if(exWin = true){
+
+    }
+    textSize(50);
+    fill(255,0,0);
+    text(ohWinStatement,0,750);
+    if(ohWin = true){
+
+    }
 
   }
 }
