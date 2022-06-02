@@ -85,9 +85,8 @@ if (mousePressed){
   greenTrue = true;
 
 
-  if greenTrue = true{
     fill(23, 45, 34);
-  }
+
   
 
 }
