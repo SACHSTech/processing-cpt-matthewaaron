@@ -84,7 +84,8 @@ public class Sketch1 extends PApplet {
             rect(boxX,boxY,boxWidth,boxHeight);
           }
           if(intGrid[column][row] == 0){
-            fill(255,255,0);
+ 
+            noFill();
             rect(boxX,boxY,boxWidth,boxHeight);
           }
         
@@ -113,15 +114,17 @@ public class Sketch1 extends PApplet {
   public void mousePressed(){
     if (mouseButton == LEFT) {
       
-      intGrid [column][row] = 1;
+      intGrid [mouseY/200][mouseX/200] = 1;
 
     }
 
+    
     if (mouseButton == RIGHT){
 
-      intGrid [column][row] = 2;
+      intGrid [mouseY/200][mouseX/200] = 2;
 
     }
+    
   }
 
   public void winCounter(){
