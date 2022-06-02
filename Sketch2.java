@@ -92,13 +92,13 @@ public class Sketch2 extends PApplet {
   public void mousePressed(){
     if (mouseButton == LEFT) {
       
-      intGrid [column][row] = 1;
+      intGrid [mouseX/200][mouseY/200] = 1;
 
     }
 
     if (mouseButton == RIGHT){
 
-      intGrid [column][row] = 2;
+      intGrid [mouseX/200][mouseY/200] = 2;
 
     }
   }
