@@ -16,10 +16,10 @@ public class Sketch1 extends PApplet {
 
   boolean exWin = false;
   boolean ohWin = false;
-  int exWincounter = 0;
-  int ohWincounter = 0;
-  String exWinStatement = "X Wins: ";
-  String ohWinStatement = "O Wins: ";
+  int blooWincounter = 0;
+  int greenWincounter = 0;
+  String blooWinStatement = "Blue Wins: ";
+  String greenWinStatement = "Green Wins: ";
 
   PImage uwuBg;
   PImage pain;
@@ -86,13 +86,13 @@ public class Sketch1 extends PApplet {
 
     textSize(50);
     fill(255,0,0);
-    text(exWinStatement,0,700);
+    text(blooWinStatement,0,700);
     if(exWin = true){
 
     }
     textSize(50);
     fill(255,0,0);
-    text(ohWinStatement,0,750);
+    text(greenWinStatement,0,750);
     if(ohWin = true){
 
     }
