@@ -42,7 +42,7 @@ public class Sketch2 extends PApplet {
     intGrid = new int[rowCount][colCount];
     for(int x = 0; x < rowCount; x++){
       for(int y = 0; y < colCount; y++){
-        intGrid[x][y] = 2;
+        intGrid[x][y] = 0;
       }
     }
     
@@ -91,25 +91,14 @@ public class Sketch2 extends PApplet {
   }
   public void mousePressed(){
     if (mouseButton == LEFT) {
-      if(intGrid [mouseX][mouseY] == 1){
-
-        intGrid [mouseX][mouseY] = 0;
-     
-    } else if (mouseButton == RIGHT) {
-      if(intGrid [mouseX][mouseY] == 1){
-
-        intGrid [mouseX][mouseY] = 2;
-        
-    } else {
-      if(intGrid [mouseX][mouseY] == 0){
-  
-        intGrid [mouseX][mouseY] = 1;
-    
-    }
+  intGrid[mouseX/200][mouseY/200] =1;
+  }
+  if (mouseButton == RIGHT) {
+  intGrid[mouseX/200][mouseY/200]=2;
   }
 }
-    }
-  }
+    
+  
 
   
   public void keyPressed(){
