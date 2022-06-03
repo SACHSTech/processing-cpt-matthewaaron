@@ -91,6 +91,7 @@ public class Sketch2 extends PApplet {
   }
   public void mousePressed(){
     if (mouseButton == LEFT) {
+<<<<<<< HEAD
   intGrid[mouseX/200][mouseY/200] =1;
   }
   if (mouseButton == RIGHT) {
@@ -98,6 +99,19 @@ public class Sketch2 extends PApplet {
   }
 }
     
+=======
+      
+      intGrid [mouseX/200][mouseY/200] = 1;
+
+    }
+
+    if (mouseButton == RIGHT){
+
+      intGrid [mouseX/200][mouseY/200] = 2;
+
+    }
+  }
+>>>>>>> 0c12e503c28a7183fd69bd8087cb992bd00be1f6
   
 
   

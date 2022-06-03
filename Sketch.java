@@ -14,8 +14,8 @@ public class Sketch extends PApplet {
 
   int backgroundCount = 0;
 
-  boolean exWin = false;
-  boolean ohWin = false;
+  boolean blooWin = false;
+  boolean greenWin = false;
   int blooWincounter = 0;
   int greenWincounter = 0;
   String blooWinStatement = "Blue Wins: ";
@@ -87,13 +87,13 @@ public class Sketch extends PApplet {
     textSize(50);
     fill(255,0,0);
     text(blooWinStatement,0,700);
-    if(exWin = true){
+    if(blooWin = true){
 
     }
     textSize(50);
     fill(255,0,0);
     text(greenWinStatement,0,750);
-    if(ohWin = true){
+    if(greenWin = true){
 
     }
 
