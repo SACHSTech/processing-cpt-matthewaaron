@@ -12,6 +12,9 @@ public class Sketch1 extends PApplet {
   int boxWidth = 200;
   int boxHeight = 200;
 
+  int rowBoxCount = 0;
+  int rowCont = 0;
+
   int backgroundCount = 0;
 
   boolean blooWin = false;
@@ -94,6 +97,7 @@ public class Sketch1 extends PApplet {
     }
         
       }
+      
   }
   
   public void keyPressed(){
@@ -106,6 +110,9 @@ public class Sketch1 extends PApplet {
         backgroundCount = 0;
       }
 
+    }
+    if (keyCode == SHIFT){
+      noFill();
     }
 
 
@@ -124,7 +131,14 @@ public class Sketch1 extends PApplet {
       intGrid [mouseY/200][mouseX/200] = 2;
 
     }
-    
+    rowCont = 0;
+    for(int i = 0; i < rowCount; i++){
+      for (int h = 0; h <colCount; h++){
+    if(intGrid[h][i] == 1){
+      rowBoxCount++;
+    }
+  }
+}
   }
 
   public void winCounter(){

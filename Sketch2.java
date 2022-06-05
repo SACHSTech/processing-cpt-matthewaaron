@@ -12,11 +12,13 @@ public class Sketch2 extends PApplet {
   int boxWidth = 200;
   int boxHeight = 200;
 
-  int backgroundCount = 0;
-  int boxCounter  = 0;
+  int rowBoxCount = 0;
+  int rowCont = 0;
 
-  boolean exWin = false;
-  boolean ohWin = false;
+  int backgroundCount = 0;
+
+  boolean blooWin = false;
+  boolean greenWin = false;
   int blooWincounter = 0;
   int greenWincounter = 0;
   String blooWinStatement = "Blue Wins: ";
@@ -26,7 +28,7 @@ public class Sketch2 extends PApplet {
   PImage pain;
   PImage cart;
 
-  int [][] intGrid; 
+  int [][] intGrid;
 
 
   public void settings() {
@@ -39,14 +41,16 @@ public class Sketch2 extends PApplet {
 
   public void setup() {
     //background(210, 255, 173);
+
     intGrid = new int[rowCount][colCount];
     for(int x = 0; x < rowCount; x++){
       for(int y = 0; y < colCount; y++){
         intGrid[x][y] = 0;
-      }
+      
+      
     }
-    
   }
+}
 
 
   public void draw() {
@@ -64,56 +68,37 @@ public class Sketch2 extends PApplet {
   for(row = 0; row < rowCount; row++){
     for(column = 0; column < colCount; column++){
 
-      int boxX = (boxWidth * row);
-      int boxY = (boxHeight * column);
-
-      stroke(255,0,0);
-      strokeWeight(10);
-      
-
-      if(intGrid[column][row] == 2){
-        fill(0,0,255);
-        rect(boxX,boxY,boxWidth,boxHeight);
-      }
-      if(intGrid[column][row] == 1){
-        fill(0,255,0);
-        rect(boxX,boxY,boxWidth,boxHeight);
-      }
-      if(intGrid[column][row] == 0){
-        fill(255,255,0);
-        rect(boxX,boxY,boxWidth,boxHeight);
-      }
+      for(row = 0; row < rowCount; row++){
+        for(column = 0; column < colCount; column++){
     
-    }
+          int boxX = (boxWidth * row);
+          int boxY = (boxHeight * column);
     
-  }
+          stroke(255,0,0);
+          strokeWeight(10);
+          
+    
+          if(intGrid[column][row] == 2){
+            fill(0,0,255);
+            rect(boxX,boxY,boxWidth,boxHeight);
+          }
+          if(intGrid[column][row] == 1){
+            fill(0,255,0);
+            rect(boxX,boxY,boxWidth,boxHeight);
+          }
+          if(intGrid[column][row] == 0){
  
-  }
-  public void mousePressed(){
-    if (mouseButton == LEFT) {
-<<<<<<< HEAD
-  intGrid[mouseX/200][mouseY/200] =1;
-  }
-  if (mouseButton == RIGHT) {
-  intGrid[mouseX/200][mouseY/200]=2;
-  }
-}
-    
-=======
+            noFill();
+            rect(boxX,boxY,boxWidth,boxHeight);
+          }
+        
+        }
+      }
+    }
+        
+      }
       
-      intGrid [mouseX/200][mouseY/200] = 1;
-
-    }
-
-    if (mouseButton == RIGHT){
-
-      intGrid [mouseX/200][mouseY/200] = 2;
-
-    }
   }
->>>>>>> 0c12e503c28a7183fd69bd8087cb992bd00be1f6
-  
-
   
   public void keyPressed(){
 
@@ -126,8 +111,34 @@ public class Sketch2 extends PApplet {
       }
 
     }
+    if (keyCode == SHIFT){
+      intGrid [mouseY/200][mouseX/200] = 0;
+    }
 
 
+  }
+
+  public void mousePressed(){
+    if (mouseButton == LEFT) {
+      
+      intGrid [mouseY/200][mouseX/200] = 1;
+
+    }
+
+    
+    if (mouseButton == RIGHT){
+
+      intGrid [mouseY/200][mouseX/200] = 2;
+
+    }
+    rowCont = 0;
+    for(int i = 0; i < rowCount; i++){
+      for (int h = 0; h <colCount; h++){
+    if(intGrid[h][i] == 1){
+      rowBoxCount++;
+    }
+  }
+}
   }
 
   public void winCounter(){
@@ -136,13 +147,13 @@ public class Sketch2 extends PApplet {
     textSize(50);
     fill(255,0,0);
     text(blooWinStatement,0,700);
-    if(exWin = true){
+    if(blooWin = true){
 
     }
     textSize(50);
     fill(255,0,0);
     text(greenWinStatement,0,750);
-    if(ohWin = true){
+    if(greenWin = true){
 
     }
 
