@@ -50,6 +50,7 @@ public class Sketch2 extends PApplet {
       
     }
   }
+  
 }
 
 
@@ -97,6 +98,64 @@ public class Sketch2 extends PApplet {
     }
         
       }
+    
+
+      boolean inARow = true;
+      int value = intGrid [x][0];
+      if (value == 0){
+        inARow = false;
+      }else{
+        for(int y =1; y<intGrid[x].length; y++){
+          if (intGrid [x][y] != value){
+            inARow = false;
+            fill(155, 155, 155);
+          }
+      }
+    }
+
+      boolean inACol = true;
+      int value5 = intGrid [0][y];
+      if (value5 == 0){
+        inACol = false;
+      }else{
+        for(int x =1; x<intGrid.length; x++){
+          if (intGrid [x][y] != value){
+            inACol = false;
+            fill(155, 155, 155);
+          }
+      }
+    }
+
+    
+
+    boolean inADiag1 = true;
+    int value1 = intGrid [0][0];
+
+    if(value1 == 0){
+      inADiag1 = false;
+    } else{
+      for(int x = 1; x < intGrid.length; x++){
+        if(intGrid[x][x] != value1){
+          inADiag1 = false;
+          fill(155, 155, 155);
+        }
+      }
+    }
+
+    boolean inADiag2 = true;
+    int value2 = intGrid [0][intGrid.length -1];
+
+    if(value2 == 0){
+      inADiag2 = false;
+    } else{
+      for(int x = 1; x < intGrid.length; x++){
+        if(intGrid[x][intGrid.length-1-x] != value2){
+          inADiag2 = false;
+          fill(155, 155, 155);
+        }
+      }
+    }
+
       
   }
   
@@ -131,6 +190,9 @@ public class Sketch2 extends PApplet {
       intGrid [mouseY/200][mouseX/200] = 2;
 
     }
+
+    if (playerHasWon(intGrid) == 'x')
+
     rowCont = 0;
     for(int i = 0; i < rowCount; i++){
       for (int h = 0; h <colCount; h++){
@@ -140,7 +202,14 @@ public class Sketch2 extends PApplet {
   }
 }
   }
+  private char playerHasWon(int[][] intGrid2) {
+    return 0;
+  }
 
+
+  public void winPosition(int x, int y, int value){
+    
+  }
   public void winCounter(){
 
 
@@ -157,5 +226,15 @@ public class Sketch2 extends PApplet {
 
     }
 
+  }
+  public static boolean boardIsFull(int[][]intGrid){
+    for(int x=0; x<intGrid.length; x++){
+      for(int y = 0; y<intGrid[y].length; y++){
+        if(intGrid[x][y] == 0){
+          return false;
+        }
+      }
+    }
+    return true;
   }
 }
