@@ -23,6 +23,10 @@ public class Sketch1 extends PApplet {
   int greenWincounter = 0;
   String blooWinStatement = "Blue Wins: ";
   String greenWinStatement = "Green Wins: ";
+  String winnerBloo = "Blue Wins! (^O^)／";
+  String winnerGreen = "Green Wins! (^O^)／";
+  boolean win = false;
+  boolean winStatement = false;
 
   PImage uwuBg;
   PImage pain;
@@ -111,8 +115,33 @@ public class Sketch1 extends PApplet {
       }
 
     }
-    if (keyCode == SHIFT){
-      noFill();
+
+    if (key == 'l'){
+
+      win = true;
+      blooWin = true;
+
+    }
+
+    if (keyCode == ' '){
+      if (win == true){
+      intGrid[0][0] = 0;
+      intGrid[0][1] = 0;
+      intGrid[0][2] = 0;
+      intGrid[1][0] = 0;
+      intGrid[1][1] = 0;
+      intGrid[1][2] = 0;
+      intGrid[2][0] = 0;
+      intGrid[2][1] = 0;
+      intGrid[2][2] = 0;
+      
+      win = false;
+      blooWin = false;
+      greenWin = false;
+      
+      }
+
+
     }
 
 
@@ -147,7 +176,18 @@ public class Sketch1 extends PApplet {
     textSize(50);
     fill(255,0,0);
     text(blooWinStatement,0,700);
-    if(blooWin = true){
+    if(blooWin == true){
+      
+      blooWincounter++;
+      win = true;
+      winStatement = true;
+
+      if (winStatement == true){
+        textSize(100);
+        fill(0,0,0);
+        text(winnerBloo,200,400);
+
+      }
 
     }
     textSize(50);
@@ -158,4 +198,8 @@ public class Sketch1 extends PApplet {
     }
 
   }
+
+
+
+
 }

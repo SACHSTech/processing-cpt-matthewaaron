@@ -1,6 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PImage;
-
+/*
 public class Sketch2 extends PApplet {
 	
 	int row = 0;
@@ -98,7 +98,7 @@ public class Sketch2 extends PApplet {
     }
         
       }
-    
+    /*
 
       boolean inARow = true;
       int value = intGrid [x][0];
@@ -191,7 +191,7 @@ public class Sketch2 extends PApplet {
 
     }
 
-    if (playerHasWon(intGrid) == 'x')
+   // if (playerHasWon(intGrid) == 'x');
 
     rowCont = 0;
     for(int i = 0; i < rowCount; i++){
@@ -201,10 +201,7 @@ public class Sketch2 extends PApplet {
     }
   }
 }
-  }
-  private char playerHasWon(int[][] intGrid2) {
-    return 0;
-  }
+  
 
 
   public void winPosition(int x, int y, int value){
@@ -238,3 +235,4 @@ public class Sketch2 extends PApplet {
     return true;
   }
 }
+*/
