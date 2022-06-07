@@ -1,6 +1,6 @@
 import processing.core.PApplet;
 import processing.core.PImage;
-/*
+
 public class Sketch2 extends PApplet {
 	
 	int row = 0;
@@ -23,6 +23,10 @@ public class Sketch2 extends PApplet {
   int greenWincounter = 0;
   String blooWinStatement = "Blue Wins: ";
   String greenWinStatement = "Green Wins: ";
+  String winnerBloo = "Blue Wins! (^O^)／";
+  String winnerGreen = "Green Wins! (^O^)／";
+  boolean win = false;
+  boolean winStatement = false;
 
   PImage uwuBg;
   PImage pain;
@@ -50,7 +54,6 @@ public class Sketch2 extends PApplet {
       
     }
   }
-  
 }
 
 
@@ -98,64 +101,6 @@ public class Sketch2 extends PApplet {
     }
         
       }
-    /*
-
-      boolean inARow = true;
-      int value = intGrid [x][0];
-      if (value == 0){
-        inARow = false;
-      }else{
-        for(int y =1; y<intGrid[x].length; y++){
-          if (intGrid [x][y] != value){
-            inARow = false;
-            fill(155, 155, 155);
-          }
-      }
-    }
-
-      boolean inACol = true;
-      int value5 = intGrid [0][y];
-      if (value5 == 0){
-        inACol = false;
-      }else{
-        for(int x =1; x<intGrid.length; x++){
-          if (intGrid [x][y] != value){
-            inACol = false;
-            fill(155, 155, 155);
-          }
-      }
-    }
-
-    
-
-    boolean inADiag1 = true;
-    int value1 = intGrid [0][0];
-
-    if(value1 == 0){
-      inADiag1 = false;
-    } else{
-      for(int x = 1; x < intGrid.length; x++){
-        if(intGrid[x][x] != value1){
-          inADiag1 = false;
-          fill(155, 155, 155);
-        }
-      }
-    }
-
-    boolean inADiag2 = true;
-    int value2 = intGrid [0][intGrid.length -1];
-
-    if(value2 == 0){
-      inADiag2 = false;
-    } else{
-      for(int x = 1; x < intGrid.length; x++){
-        if(intGrid[x][intGrid.length-1-x] != value2){
-          inADiag2 = false;
-          fill(155, 155, 155);
-        }
-      }
-    }
-
       
   }
   
@@ -170,12 +115,139 @@ public class Sketch2 extends PApplet {
       }
 
     }
-    if (keyCode == SHIFT){
-      intGrid [mouseY/200][mouseX/200] = 0;
+
+  //  if (key == 'l'){
+
+    //  win = true;
+   //   blooWin = true;
+
+    //}
+
+    if (keyCode == ' '){
+      if (win == true){
+      intGrid[0][0] = 0;
+      intGrid[0][1] = 0;
+      intGrid[0][2] = 0;
+      intGrid[1][0] = 0;
+      intGrid[1][1] = 0;
+      intGrid[1][2] = 0;
+      intGrid[2][0] = 0;
+      intGrid[2][1] = 0;
+      intGrid[2][2] = 0;
+      
+      win = false;
+      blooWin = false;
+      greenWin = false;
+      
+      }
+
+
     }
 
+    greenCols();
+    greenRows();
+    greenDiags();
+    blooCols();
+    blooRows();
+    blooDiags();
+  }
+  public void greenCols(){
+    if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1) {
+      win = true;
+      greenWin = true; 
+  }
+  if (intGrid[1][0] == 1 && intGrid [1][1] == 1 && intGrid[1][2] == 1){
+    win = true;
+    greenWin = true;
+  }
+  if (intGrid[2][0] == 1 && intGrid [2][1] == 1 && intGrid[2][2] == 1){
+    win = true;
+    greenWin = true;
+  }
 
   }
+  public void greenRows(){
+    if (intGrid[0][0] == 1 && intGrid[1][0] == 1 && intGrid[2][0] == 1) {
+      win = true;
+      greenWin = true; 
+    }
+    if (intGrid[0][1] == 1 && intGrid [1][1] == 1 && intGrid[2][1] == 1){
+    win = true;
+    greenWin = true;
+    }
+    if (intGrid[0][2] == 1 && intGrid [1][2] == 1 && intGrid[2][2] == 1){
+    win = true;
+    greenWin = true;
+    }
+  }
+  public void greenDiags(){
+    if (intGrid[0][0] == 1 && intGrid [1][1] == 1 && intGrid[2][2] == 1){
+      win = true;
+      greenWin = true;
+      }
+      if (intGrid[0][2] == 1 && intGrid [1][1] == 1 && intGrid[2][0] == 1){
+      win = true;
+      greenWin = true;
+      }
+  
+  }
+  public void blooCols(){
+    if (intGrid[0][0] == 2 && intGrid[0][1] == 2 && intGrid[0][2] == 2) {
+      win = true;
+      blooWin = true; 
+  }
+  if (intGrid[1][0] == 2 && intGrid [1][1] == 2 && intGrid[1][2] == 2){
+    win = true;
+    blooWin = true;
+  }
+  if (intGrid[2][0] == 2 && intGrid [2][1] == 2 && intGrid[2][2] == 2){
+    win = true;
+    blooWin = true;
+  }
+
+  }
+  public void blooRows(){
+    if (intGrid[0][0] == 2 && intGrid[1][0] == 2 && intGrid[2][0] == 2) {
+      win = true;
+      blooWin = true; 
+    }
+    if (intGrid[0][1] == 2 && intGrid [1][1] == 2 && intGrid[2][1] == 2){
+    win = true;
+    blooWin = true;
+    }
+    if (intGrid[0][2] == 2 && intGrid [1][2] == 2 && intGrid[2][2] == 2){
+    win = true;
+    blooWin = true;
+    }
+  }
+  public void blooDiags(){
+    if (intGrid[0][0] == 2 && intGrid [1][1] == 2 && intGrid[2][2] == 2){
+      win = true;
+      blooWin = true;
+      }
+      if (intGrid[0][2] == 2 && intGrid [1][1] == 2 && intGrid[2][0] == 2){
+      win = true;
+      blooWin = true;
+      }
+      }
+  /*  
+  public void checkGame(){
+    
+      if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1) {
+        win = true;
+        blooWin = true; 
+    }
+    if (intGrid[1][0] == 1 && intGrid [1][1] == 1 && intGrid[1][2] == 1){
+      win = true;
+      blooWin = true;
+    }
+    if (intGrid[2][0] == 1 && intGrid [2][1] == 1 && intGrid[2][2] == 1){
+      win = true;
+      blooWin = true;
+    }
+  }
+  */
+  
 
   public void mousePressed(){
     if (mouseButton == LEFT) {
@@ -190,9 +262,6 @@ public class Sketch2 extends PApplet {
       intGrid [mouseY/200][mouseX/200] = 2;
 
     }
-
-   // if (playerHasWon(intGrid) == 'x');
-
     rowCont = 0;
     for(int i = 0; i < rowCount; i++){
       for (int h = 0; h <colCount; h++){
@@ -201,19 +270,26 @@ public class Sketch2 extends PApplet {
     }
   }
 }
-  
-
-
-  public void winPosition(int x, int y, int value){
-    
   }
+
   public void winCounter(){
 
 
     textSize(50);
     fill(255,0,0);
     text(blooWinStatement,0,700);
-    if(blooWin = true){
+    if(blooWin == true){
+      
+      blooWincounter++;
+      win = true;
+      winStatement = true;
+
+      if (winStatement == true){
+        textSize(100);
+        fill(0,0,0);
+        text(winnerBloo,200,400);
+
+      }
 
     }
     textSize(50);
@@ -224,15 +300,8 @@ public class Sketch2 extends PApplet {
     }
 
   }
-  public static boolean boardIsFull(int[][]intGrid){
-    for(int x=0; x<intGrid.length; x++){
-      for(int y = 0; y<intGrid[y].length; y++){
-        if(intGrid[x][y] == 0){
-          return false;
-        }
-      }
-    }
-    return true;
-  }
+
+
+
+
 }
-*/
