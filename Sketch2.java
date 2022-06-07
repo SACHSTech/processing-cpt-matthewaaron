@@ -230,24 +230,6 @@ public class Sketch2 extends PApplet {
       blooWin = true;
       }
       }
-  /*  
-  public void checkGame(){
-    
-      if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1) {
-        win = true;
-        blooWin = true; 
-    }
-    if (intGrid[1][0] == 1 && intGrid [1][1] == 1 && intGrid[1][2] == 1){
-      win = true;
-      blooWin = true;
-    }
-    if (intGrid[2][0] == 1 && intGrid [2][1] == 1 && intGrid[2][2] == 1){
-      win = true;
-      blooWin = true;
-    }
-  }
-  */
-  
 
   public void mousePressed(){
     if (mouseButton == LEFT) {
@@ -263,14 +245,9 @@ public class Sketch2 extends PApplet {
 
     }
     rowCont = 0;
-    for(int i = 0; i < rowCount; i++){
-      for (int h = 0; h <colCount; h++){
-    if(intGrid[h][i] == 1){
-      rowBoxCount++;
-    }
-  }
+   
 }
-  }
+  
 
   public void winCounter(){
 
