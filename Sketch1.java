@@ -60,7 +60,7 @@ public class Sketch1 extends PApplet {
 
 
   public void draw() {
-    
+    winCounter();
     if(backgroundCount == 0){
       image(pain, 0, 0);
     }
@@ -70,7 +70,7 @@ public class Sketch1 extends PApplet {
     if(backgroundCount == 2){
       image(uwuBg,0,0);
     }
-    winCounter();
+  
   for(row = 0; row < rowCount; row++){
     for(column = 0; column < colCount; column++){
 
@@ -165,12 +165,7 @@ public class Sketch1 extends PApplet {
 
     }
 
-    greenCols();
-    greenRows();
-    greenDiags();
-    blooCols();
-    blooRows();
-    blooDiags();
+    
   }
   public void greenCols(){
     if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1) {
@@ -250,9 +245,10 @@ public class Sketch1 extends PApplet {
       win = true;
       blooWin = true;
       }
-      }
+    }
 
   public void mousePressed(){
+    
     if (mouseButton == LEFT) {
       
       intGrid [mouseY/200][mouseX/200] = 1;
@@ -268,6 +264,12 @@ public class Sketch1 extends PApplet {
       gridFull++;
 
     }
+    greenCols();
+    greenRows();
+    greenDiags();
+    blooCols();
+    blooRows();
+    blooDiags();
    
 }
   
@@ -300,8 +302,5 @@ public class Sketch1 extends PApplet {
     }
 
   }
-
-
-
 
 }
