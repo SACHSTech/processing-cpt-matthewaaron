@@ -16,6 +16,7 @@ public class Sketch extends PApplet {
   int rowCont = 0;
 
   int backgroundCount = 0;
+  String bgHelp = "B to change Background";
 
   int gridFull = 0;
 
@@ -60,7 +61,7 @@ public class Sketch extends PApplet {
 
 
   public void draw() {
-    
+
     if(backgroundCount == 0){
       image(pain, 0, 0);
     }
@@ -71,6 +72,11 @@ public class Sketch extends PApplet {
       image(uwuBg,0,0);
     }
     winCounter();
+    
+    textSize(25);
+    fill(255,0,0);
+    text(bgHelp,527,800);
+  
   for(row = 0; row < rowCount; row++){
     for(column = 0; column < colCount; column++){
 
@@ -111,7 +117,6 @@ public class Sketch extends PApplet {
     if (key == 'b'){
 
       backgroundCount++;
-      System.out.println(backgroundCount);
       if(backgroundCount>=3){
         backgroundCount = 0;
       }
@@ -165,25 +170,23 @@ public class Sketch extends PApplet {
 
     }
 
-    greenCols();
-    greenRows();
-    greenDiags();
-    blooCols();
-    blooRows();
-    blooDiags();
+    
   }
   public void greenCols(){
     if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1) {
       win = true;
-      greenWin = true; 
+      greenWin = true;
+      greenWincounter++; 
   }
   if (intGrid[1][0] == 1 && intGrid [1][1] == 1 && intGrid[1][2] == 1){
     win = true;
     greenWin = true;
+    greenWincounter++;
   }
   if (intGrid[2][0] == 1 && intGrid [2][1] == 1 && intGrid[2][2] == 1){
     win = true;
     greenWin = true;
+    greenWincounter++;
   }
 
   }
@@ -191,24 +194,29 @@ public class Sketch extends PApplet {
     if (intGrid[0][0] == 1 && intGrid[1][0] == 1 && intGrid[2][0] == 1) {
       win = true;
       greenWin = true; 
+      greenWincounter++;
     }
     if (intGrid[0][1] == 1 && intGrid [1][1] == 1 && intGrid[2][1] == 1){
     win = true;
     greenWin = true;
+    greenWincounter++;
     }
     if (intGrid[0][2] == 1 && intGrid [1][2] == 1 && intGrid[2][2] == 1){
     win = true;
     greenWin = true;
+    greenWincounter++;
     }
   }
   public void greenDiags(){
     if (intGrid[0][0] == 1 && intGrid [1][1] == 1 && intGrid[2][2] == 1){
       win = true;
       greenWin = true;
+      greenWincounter++;
       }
       if (intGrid[0][2] == 1 && intGrid [1][1] == 1 && intGrid[2][0] == 1){
       win = true;
       greenWin = true;
+      greenWincounter++;
       }
   
   }
@@ -216,14 +224,17 @@ public class Sketch extends PApplet {
     if (intGrid[0][0] == 2 && intGrid[0][1] == 2 && intGrid[0][2] == 2) {
       win = true;
       blooWin = true; 
+      blooWincounter+=1;
   }
   if (intGrid[1][0] == 2 && intGrid [1][1] == 2 && intGrid[1][2] == 2){
     win = true;
     blooWin = true;
+    blooWincounter+=1;
   }
   if (intGrid[2][0] == 2 && intGrid [2][1] == 2 && intGrid[2][2] == 2){
     win = true;
     blooWin = true;
+    blooWincounter+=1;
   }
 
   }
@@ -235,10 +246,12 @@ public class Sketch extends PApplet {
     if (intGrid[0][1] == 2 && intGrid [1][1] == 2 && intGrid[2][1] == 2){
     win = true;
     blooWin = true;
+    blooWincounter+=1;
     }
     if (intGrid[0][2] == 2 && intGrid [1][2] == 2 && intGrid[2][2] == 2){
     win = true;
     blooWin = true;
+    blooWincounter+=1;
     }
   }
   public void blooDiags(){
@@ -249,10 +262,12 @@ public class Sketch extends PApplet {
       if (intGrid[0][2] == 2 && intGrid [1][1] == 2 && intGrid[2][0] == 2){
       win = true;
       blooWin = true;
+      blooWincounter+=1;
       }
-      }
+    }
 
   public void mousePressed(){
+    
     if (mouseButton == LEFT) {
       
       intGrid [mouseY/200][mouseX/200] = 1;
@@ -268,6 +283,12 @@ public class Sketch extends PApplet {
       gridFull++;
 
     }
+    greenCols();
+    greenRows();
+    greenDiags();
+    blooCols();
+    blooRows();
+    blooDiags();
    
 }
   
@@ -276,33 +297,48 @@ public class Sketch extends PApplet {
 
 
     textSize(50);
-    fill(255,0,0);
-    text(blooWinStatement,0,700);
+    fill(0,0,255);
+    text(blooWinStatement,0,725);
+    
+    textSize(50);
+    fill(0,0,255);
+    text(blooWincounter,240,725);
+    
     if(blooWin == true){
       
-      blooWincounter++;
       win = true;
       winStatement = true;
 
       if (winStatement == true){
-        textSize(100);
-        fill(0,0,0);
-        text(winnerBloo,200,400);
+        textSize(70);
+        fill(0,0,255);
+        text(winnerBloo,0,670);
 
       }
+      
 
     }
     textSize(50);
-    fill(255,0,0);
-    text(greenWinStatement,0,750);
-    if(greenWin = true){
+    fill(0,255,0);
+    text(greenWinStatement,0,775);
 
+    textSize(50);
+    fill(0,255,0);
+    text(greenWincounter,280,775);
+
+    if(greenWin == true){
+
+      win = true;
+      winStatement = true;
+
+      if (winStatement == true){
+        textSize(70);
+        fill(0,255,0);
+        text(winnerGreen,0,670);
+
+      }
     }
 
   }
-  
-
-
-
 
 }
