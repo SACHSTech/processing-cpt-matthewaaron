@@ -31,6 +31,8 @@ public class Sketch2 extends PApplet {
   boolean win = false;
   boolean winStatement = false;
   boolean turn = false;
+  String clearText = "Space to Clear";
+  boolean isFull = false;
 
   PImage uwuBg;
   PImage pain;
@@ -77,6 +79,10 @@ public class Sketch2 extends PApplet {
     textSize(25);
     fill(255,0,0);
     text(bgHelp,527,800);
+    
+    textSize(25);
+    fill(255,0,0);
+    text(clearText,527,775);
   
   for(row = 0; row < rowCount; row++){
     for(column = 0; column < colCount; column++){
@@ -270,24 +276,18 @@ public class Sketch2 extends PApplet {
   public void mousePressed(){
     
     
-    if (mouseButton == LEFT) {
-      if (turn == false){
-        intGrid [mouseY/200][mouseX/200] = 1;
-        turn =true;
+      if(turn == false){
+        intGrid [mouseY/200][mouseX/200] = 2; 
         gridFull++;
+        turn = true;
+        
       }
-      
-
-    }
-
-    
-    if (mouseButton == RIGHT){
-      if (turn == true){
-        intGrid [mouseY/200][mouseX/200] = 2;
+      else if (turn == true && mouseButton == LEFT){
+        intGrid [mouseY/200][mouseX/200] = 1; 
         gridFull++;
         turn = false;
       }
-    }
+
     greenCols();
     greenRows();
     greenDiags();
