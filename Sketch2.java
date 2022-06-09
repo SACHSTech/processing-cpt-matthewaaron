@@ -277,7 +277,9 @@ public class Sketch2 extends PApplet {
     
     
       if(turn == false && mouseButton == LEFT && win == false && gridFull <= 9){
-        intGrid [mouseY/200][mouseX/200] = 2; 
+        if ([mouseY/200][mouseX/200] = 0){
+        intGrid [mouseY/200][mouseX/200] = 2;
+        }
         gridFull++;
         turn = true;
         
