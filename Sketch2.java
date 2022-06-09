@@ -273,6 +273,20 @@ public class Sketch2 extends PApplet {
       }
     }
 
+    public void Full(){
+      if (intGrid[0][0]==2 || intGrid [0][0]== 1){
+        isFull = true;
+      }
+      if (intGrid[1][0]==2 || intGrid [1][0]== 1){
+        isFull = true;
+      }
+      if (intGrid[2][0]==2 || intGrid [2][0]== 1){
+        isFull = true;
+      }
+      if (intGrid[0][1]==2 || intGrid [0][1]== 1){
+        isFull = true;
+      }
+    }
   public void mousePressed(){
     
     
@@ -294,6 +308,7 @@ public class Sketch2 extends PApplet {
     blooCols();
     blooRows();
     blooDiags();
+    Full();
    
 }
   
