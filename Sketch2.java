@@ -16,9 +16,11 @@ public class Sketch2 extends PApplet {
   int rowCont = 0;
 
   int backgroundCount = 0;
+  int turn = 0;
 
   boolean blooWin = false;
   boolean greenWin = false;
+  boolean tie = false;
   int blooWincounter = 0;
   int greenWincounter = 0;
   String blooWinStatement = "Blue Wins: ";
@@ -138,6 +140,7 @@ public class Sketch2 extends PApplet {
       win = false;
       blooWin = false;
       greenWin = false;
+      tie = false;
       
       }
 
@@ -150,6 +153,7 @@ public class Sketch2 extends PApplet {
     blooCols();
     blooRows();
     blooDiags();
+    //fullGrid();
   }
   public void greenCols(){
     if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1) {
@@ -230,6 +234,16 @@ public class Sketch2 extends PApplet {
       blooWin = true;
       }
       }
+      /* 
+    public void fullGrid(){
+      if (intGrid[0][0] == 2 || intGrid[0][0] == 1 && intGrid [0][1] == 2 || intGrid[0][1] == 1  && intGrid[0][2] == 2 || intGrid[0][2] == 1 && intGrid[1][0] == 2 || intGrid[1][0] == 1 && intGrid [1][1] == 2 || intGrid[1][1] == 1 && intGrid[1][2] == 2 || intGrid[1][2] == 1 && intGrid[2][0] == 2 || intGrid[2][0] == 1 && intGrid [2][1] == 2 || intGrid[2][1] == 1 && intGrid[2][2] == 2 || intGrid[2][2] == 1){
+        win = true;
+        tie = true;
+        }
+  
+    }
+    */
+    
   /*  
   public void checkGame(){
     
@@ -251,9 +265,12 @@ public class Sketch2 extends PApplet {
 
   public void mousePressed(){
     if (mouseButton == LEFT) {
+      if (turn == 1){
+
+      
       
       intGrid [mouseY/200][mouseX/200] = 1;
-
+    }
     }
 
     
