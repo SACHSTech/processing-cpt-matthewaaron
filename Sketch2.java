@@ -155,7 +155,7 @@ public class Sketch2 extends PApplet {
       gridFull = 0;
       
       }
-      if (win == false && gridFull == 9){
+      if (win == false && gridFull >= 9){
           intGrid[0][0] = 0;
           intGrid[0][1] = 0;
           intGrid[0][2] = 0;
@@ -290,13 +290,13 @@ public class Sketch2 extends PApplet {
   public void mousePressed(){
     
     
-      if(turn == false){
+      if(turn == false && mouseButton == LEFT && win == false && gridFull <= 9){
         intGrid [mouseY/200][mouseX/200] = 2; 
         gridFull++;
         turn = true;
         
       }
-      else if (turn == true && mouseButton == LEFT){
+      else if (turn == true && mouseButton == LEFT&& win == false && gridFull <= 9){
         intGrid [mouseY/200][mouseX/200] = 1; 
         gridFull++;
         turn = false;
