@@ -309,7 +309,7 @@ public class Sketch2 extends PApplet {
     fill(0,0,255);
     text(blooWincounter,240,725);
 
-    
+
     if(blooWin == true){
       
       win = true;
