@@ -30,6 +30,10 @@ public class Sketch extends PApplet {
   String winnerGreen = "Green Wins! (^O^)／";
   boolean win = false;
   boolean winStatement = false;
+  boolean turn = false;
+  String clearText = "Space to Clear";
+  boolean isFull = false;
+  String tie ="Tie （●｀ε´●）";
 
   PImage uwuBg;
   PImage pain;
@@ -76,6 +80,10 @@ public class Sketch extends PApplet {
     textSize(25);
     fill(255,0,0);
     text(bgHelp,527,800);
+    
+    textSize(25);
+    fill(255,0,0);
+    text(clearText,527,775);
   
   for(row = 0; row < rowCount; row++){
     for(column = 0; column < colCount; column++){
@@ -148,7 +156,7 @@ public class Sketch extends PApplet {
       gridFull = 0;
       
       }
-      if (win == false && gridFull == 9){
+      if (win == false && gridFull >= 9){
           intGrid[0][0] = 0;
           intGrid[0][1] = 0;
           intGrid[0][2] = 0;
@@ -268,21 +276,19 @@ public class Sketch extends PApplet {
 
   public void mousePressed(){
     
-    if (mouseButton == LEFT) {
-      
-      intGrid [mouseY/200][mouseX/200] = 1;
-
-      gridFull++;
-
-    }
-
     
-    if (mouseButton == RIGHT){
+      if(turn == false && mouseButton == LEFT && win == false && gridFull <= 9 && intGrid [mouseY/200][mouseX/200] == 0){
+        intGrid [mouseY/200][mouseX/200] = 2;
+        gridFull++;
+        turn = true;
+        
+      }
+      else if (turn == true && mouseButton == LEFT&& win == false && gridFull <= 9 && intGrid [mouseY/200][mouseX/200] == 0){
+        intGrid [mouseY/200][mouseX/200] = 1; 
+        gridFull++;
+        turn = false;
+      }
 
-      intGrid [mouseY/200][mouseX/200] = 2;
-      gridFull++;
-
-    }
     greenCols();
     greenRows();
     greenDiags();
@@ -303,6 +309,7 @@ public class Sketch extends PApplet {
     textSize(50);
     fill(0,0,255);
     text(blooWincounter,240,725);
+
     
     if(blooWin == true){
       
@@ -338,6 +345,14 @@ public class Sketch extends PApplet {
 
       }
     }
+  
+    if (win == false && gridFull >= 9){
+      textSize(70);
+          fill(0,255,255);
+          text(tie,0,670);
+        
+      }
+    
 
   }
 
