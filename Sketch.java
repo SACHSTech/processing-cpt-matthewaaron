@@ -34,6 +34,7 @@ public class Sketch extends PApplet {
   String clearText = "Space to Clear";
   boolean isFull = false;
   String tie ="Tie （●｀ε´●）";
+  boolean winnerPlus = false;
 
   PImage uwuBg;
   PImage pain;
@@ -267,10 +268,16 @@ public class Sketch extends PApplet {
       win = true;
       blooWin = true;
       }
-      if (intGrid[0][2] == 2 && intGrid [1][1] == 2 && intGrid[2][0] == 2){
+      if (intGrid[0][2] == 2 && intGrid [1][1] == 2 && intGrid[2][0] == 2 && winnerPlus == false){
       win = true;
       blooWin = true;
-      blooWincounter+=1;
+      winnerPlus = true;
+
+        if(winnerPlus == true){
+        blooWincounter+=1;
+        gridFull = 9;
+        win = false;
+        }
       }
     }
 
