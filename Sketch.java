@@ -309,9 +309,10 @@ public class Sketch extends PApplet {
         }
       }
     }
-     /*public void winnerPlusBloo(){
-      if (win == true && blooWin == true && winnerPlus == true){
-        
+     public void winnerPlusBloo(){
+      if (win == true && blooWin == true ){
+
+        winnerPlus = true;
 
         if(winnerPlus == true){
         blooWincounter+=1;
@@ -321,7 +322,7 @@ public class Sketch extends PApplet {
         }
       }
       }
-     */
+     
       
   
 
@@ -346,7 +347,7 @@ public class Sketch extends PApplet {
     blooCols();
     blooRows();
     blooDiags();
-    //winnerPlusBloo();
+    winnerPlusBloo();
    
 }
   
