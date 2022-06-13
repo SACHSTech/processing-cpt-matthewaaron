@@ -183,17 +183,14 @@ public class Sketch2 extends PApplet {
     if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1) {
       win = true;
       greenWin = true;
-      greenWincounter++; 
   }
   if (intGrid[1][0] == 1 && intGrid [1][1] == 1 && intGrid[1][2] == 1){
     win = true;
     greenWin = true;
-    greenWincounter++;
   }
   if (intGrid[2][0] == 1 && intGrid [2][1] == 1 && intGrid[2][2] == 1){
     win = true;
     greenWin = true;
-    greenWincounter++;
   }
 
   }
@@ -201,29 +198,24 @@ public class Sketch2 extends PApplet {
     if (intGrid[0][0] == 1 && intGrid[1][0] == 1 && intGrid[2][0] == 1) {
       win = true;
       greenWin = true; 
-      greenWincounter++;
     }
     if (intGrid[0][1] == 1 && intGrid [1][1] == 1 && intGrid[2][1] == 1){
     win = true;
     greenWin = true;
-    greenWincounter++;
     }
     if (intGrid[0][2] == 1 && intGrid [1][2] == 1 && intGrid[2][2] == 1){
     win = true;
     greenWin = true;
-    greenWincounter++;
     }
   }
   public void greenDiags(){
     if (intGrid[0][0] == 1 && intGrid [1][1] == 1 && intGrid[2][2] == 1){
       win = true;
       greenWin = true;
-      greenWincounter++;
       }
       if (intGrid[0][2] == 1 && intGrid [1][1] == 1 && intGrid[2][0] == 1){
       win = true;
       greenWin = true;
-      greenWincounter++;
       }
   
   }
@@ -231,17 +223,14 @@ public class Sketch2 extends PApplet {
     if (intGrid[0][0] == 2 && intGrid[0][1] == 2 && intGrid[0][2] == 2) {
       win = true;
       blooWin = true; 
-      blooWincounter+=1;
   }
   if (intGrid[1][0] == 2 && intGrid [1][1] == 2 && intGrid[1][2] == 2){
     win = true;
     blooWin = true;
-    blooWincounter+=1;
   }
   if (intGrid[2][0] == 2 && intGrid [2][1] == 2 && intGrid[2][2] == 2){
     win = true;
     blooWin = true;
-    blooWincounter+=1;
   }
 
   }
@@ -253,23 +242,21 @@ public class Sketch2 extends PApplet {
     if (intGrid[0][1] == 2 && intGrid [1][1] == 2 && intGrid[2][1] == 2){
     win = true;
     blooWin = true;
-    blooWincounter+=1;
     }
     if (intGrid[0][2] == 2 && intGrid [1][2] == 2 && intGrid[2][2] == 2){
     win = true;
     blooWin = true;
-    blooWincounter+=1;
     }
   }
   public void blooDiags(){
     if (intGrid[0][0] == 2 && intGrid [1][1] == 2 && intGrid[2][2] == 2){
       win = true;
       blooWin = true;
+      
       }
       if (intGrid[0][2] == 2 && intGrid [1][1] == 2 && intGrid[2][0] == 2){
       win = true;
       blooWin = true;
-      blooWincounter+=1;
       }
     }
 
@@ -308,11 +295,23 @@ public class Sketch2 extends PApplet {
     blooCols();
     blooRows();
     blooDiags();
+    blooWinCuter();
+    greenWinCuter();
+
     Full();
    
 }
   
-
+  public void blooWinCuter(){
+ if (win == true && blooWin == true){
+  blooWincounter+=1;
+ }
+  }
+public void greenWinCuter(){
+  if (win == true && greenWin == true){
+    greenWincounter+=1;
+  }
+}
   public void winCounter(){
 
 
