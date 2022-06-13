@@ -30,6 +30,11 @@ public class Sketch1 extends PApplet {
   String winnerGreen = "Green Wins! (^O^)／";
   boolean win = false;
   boolean winStatement = false;
+  boolean turn = false;
+  String clearText = "Space to Clear";
+  boolean isFull = false;
+  String tie ="Tie （●｀ε´●）";
+  boolean winnerPlus = false;
 
   PImage uwuBg;
   PImage pain;
@@ -47,8 +52,6 @@ public class Sketch1 extends PApplet {
 
 
   public void setup() {
-    //background(210, 255, 173);
-
     intGrid = new int[rowCount][colCount];
     for(int x = 0; x < rowCount; x++){
       for(int y = 0; y < colCount; y++){
@@ -59,7 +62,9 @@ public class Sketch1 extends PApplet {
   }
 }
 
-
+/*
+ * Draws the code on screen
+ */
   public void draw() {
 
     if(backgroundCount == 0){
@@ -76,6 +81,10 @@ public class Sketch1 extends PApplet {
     textSize(25);
     fill(255,0,0);
     text(bgHelp,527,800);
+    
+    textSize(25);
+    fill(255,0,0);
+    text(clearText,527,775);
   
   for(row = 0; row < rowCount; row++){
     for(column = 0; column < colCount; column++){
@@ -111,7 +120,9 @@ public class Sketch1 extends PApplet {
       }
       
   }
-  
+  /*
+   * Detects if a key is pressed and trigger the code that the key is assinged to
+   */
   public void keyPressed(){
 
     if (key == 'b'){
@@ -146,9 +157,10 @@ public class Sketch1 extends PApplet {
       blooWin = false;
       greenWin = false;
       gridFull = 0;
+      winnerPlus = false;
       
       }
-      if (win == false && gridFull == 9){
+      if (win == false && gridFull >= 9){
           intGrid[0][0] = 0;
           intGrid[0][1] = 0;
           intGrid[0][2] = 0;
@@ -163,6 +175,7 @@ public class Sketch1 extends PApplet {
         blooWin = false;
         greenWin = false;
         gridFull = 0;
+        winnerPlus = false;
         
         
         }
@@ -172,58 +185,84 @@ public class Sketch1 extends PApplet {
 
     
   }
+
+  /*
+   * Check if green has 3 in a column and sets win condition
+   */
   public void greenCols(){
     if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1) {
       win = true;
       greenWin = true;
+      greenWincounter++; 
   }
   if (intGrid[1][0] == 1 && intGrid [1][1] == 1 && intGrid[1][2] == 1){
     win = true;
     greenWin = true;
+    greenWincounter++;
   }
   if (intGrid[2][0] == 1 && intGrid [2][1] == 1 && intGrid[2][2] == 1){
     win = true;
     greenWin = true;
+    greenWincounter++;
   }
 
   }
+
+/*
+ * Checks i green has 3 in a row and sets win condition
+ */
   public void greenRows(){
     if (intGrid[0][0] == 1 && intGrid[1][0] == 1 && intGrid[2][0] == 1) {
       win = true;
       greenWin = true; 
+      greenWincounter++;
     }
     if (intGrid[0][1] == 1 && intGrid [1][1] == 1 && intGrid[2][1] == 1){
     win = true;
     greenWin = true;
+    greenWincounter++;
     }
     if (intGrid[0][2] == 1 && intGrid [1][2] == 1 && intGrid[2][2] == 1){
     win = true;
     greenWin = true;
+    greenWincounter++;
     }
   }
+
+  /*
+   * Checks if green has 3 in a diagonal and sets win condition
+   */
   public void greenDiags(){
     if (intGrid[0][0] == 1 && intGrid [1][1] == 1 && intGrid[2][2] == 1){
       win = true;
       greenWin = true;
+      greenWincounter++;
       }
       if (intGrid[0][2] == 1 && intGrid [1][1] == 1 && intGrid[2][0] == 1){
       win = true;
       greenWin = true;
+      greenWincounter++;
       }
   
   }
+  /*
+   * Checks if blue has 3 in a column and sets win condition
+   */
   public void blooCols(){
     if (intGrid[0][0] == 2 && intGrid[0][1] == 2 && intGrid[0][2] == 2) {
       win = true;
       blooWin = true; 
+      blooWincounter+=1;
   }
   if (intGrid[1][0] == 2 && intGrid [1][1] == 2 && intGrid[1][2] == 2){
     win = true;
     blooWin = true;
+    blooWincounter+=1;
   }
   if (intGrid[2][0] == 2 && intGrid [2][1] == 2 && intGrid[2][2] == 2){
     win = true;
     blooWin = true;
+    blooWincounter+=1;
   }
 
   }
@@ -235,58 +274,63 @@ public class Sketch1 extends PApplet {
     if (intGrid[0][1] == 2 && intGrid [1][1] == 2 && intGrid[2][1] == 2){
     win = true;
     blooWin = true;
+    blooWincounter+=1;
     }
     if (intGrid[0][2] == 2 && intGrid [1][2] == 2 && intGrid[2][2] == 2){
     win = true;
     blooWin = true;
+    blooWincounter+=1;
     }
   }
   public void blooDiags(){
-    if (intGrid[0][0] == 2 && intGrid [1][1] == 2 && intGrid[2][2] == 2){
+    if (intGrid[0][0] == 2 && intGrid [1][1] == 2 && intGrid[2][2] == 2 && winnerPlus == false){
       win = true;
       blooWin = true;
+      winnerPlus = true;
+
+        if(winnerPlus == true){
+        blooWincounter+=1;
+        gridFull = 9;
+        win = false;
+        }
       }
-      if (intGrid[0][2] == 2 && intGrid [1][1] == 2 && intGrid[2][0] == 2){
+      if (intGrid[0][2] == 2 && intGrid [1][1] == 2 && intGrid[2][0] == 2 && winnerPlus == false){
       win = true;
       blooWin = true;
+      winnerPlus = true;
+
+        if(winnerPlus == true){
+        blooWincounter+=1;
+        gridFull = 9;
+        blooWin = false;
+        win = false;
+        }
       }
     }
-  public void winCondition(){
-  if (win==true && blooWin == true){
-    blooWincounter+=1;
-  }
-  if(win==true && greenWin == true){
-    greenWincounter+=1;
-  }
-}
 
   public void mousePressed(){
     
-    if (mouseButton == LEFT) {
-      
-      intGrid [mouseY/200][mouseX/200] = 1;
-
-      gridFull++;
-
-    }
-
     
-    if (mouseButton == RIGHT){
+      if(turn == false && mouseButton == LEFT && win == false && gridFull <= 9 && intGrid [mouseY/200][mouseX/200] == 0 && blooWin == false && greenWin == false){
+        intGrid [mouseY/200][mouseX/200] = 2;
+        gridFull++;
+        turn = true;
+        
+      }
+      else if (turn == true && mouseButton == LEFT&& win == false && gridFull <= 9 && intGrid [mouseY/200][mouseX/200] == 0 && blooWin == false && greenWin == false){
+        intGrid [mouseY/200][mouseX/200] = 1; 
+        gridFull++;
+        turn = false;
+      }
 
-      intGrid [mouseY/200][mouseX/200] = 2;
-      gridFull++;
-
-    }
     greenCols();
     greenRows();
     greenDiags();
     blooCols();
     blooRows();
     blooDiags();
-    winCondition();
    
 }
-
   
 
   public void winCounter(){
@@ -299,6 +343,7 @@ public class Sketch1 extends PApplet {
     textSize(50);
     fill(0,0,255);
     text(blooWincounter,240,725);
+
     
     if(blooWin == true){
       
@@ -334,7 +379,16 @@ public class Sketch1 extends PApplet {
 
       }
     }
+  
+    if (win == false && gridFull >= 9){
+      textSize(70);
+          fill(0,255,255);
+          text(tie,0,670);
+        
+      }
+    
 
   }
+
 
 }
