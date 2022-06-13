@@ -155,6 +155,7 @@ public class Sketch extends PApplet {
       blooWin = false;
       greenWin = false;
       gridFull = 0;
+      winnerPlus = false;
       
       }
       if (win == false && gridFull >= 9){
@@ -172,6 +173,7 @@ public class Sketch extends PApplet {
         blooWin = false;
         greenWin = false;
         gridFull = 0;
+        winnerPlus = false;
         
         
         }
@@ -264,10 +266,16 @@ public class Sketch extends PApplet {
     }
   }
   public void blooDiags(){
-    if (intGrid[0][0] == 2 && intGrid [1][1] == 2 && intGrid[2][2] == 2){
+    if (intGrid[0][0] == 2 && intGrid [1][1] == 2 && intGrid[2][2] == 2 && winnerPlus == false){
       win = true;
       blooWin = true;
-      blooWincounter+=1;
+      winnerPlus = true;
+
+        if(winnerPlus == true){
+        blooWincounter+=1;
+        gridFull = 9;
+        win = false;
+        }
       }
       if (intGrid[0][2] == 2 && intGrid [1][1] == 2 && intGrid[2][0] == 2 && winnerPlus == false){
       win = true;
@@ -278,7 +286,6 @@ public class Sketch extends PApplet {
         blooWincounter+=1;
         gridFull = 9;
         win = false;
-        winnerPlus = false;
         }
       }
     }
