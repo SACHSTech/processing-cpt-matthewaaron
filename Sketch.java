@@ -155,6 +155,7 @@ public class Sketch extends PApplet {
       blooWin = false;
       greenWin = false;
       gridFull = 0;
+      winnerPlus = false;
       
       }
       if (win == false && gridFull >= 9){
@@ -277,8 +278,9 @@ public class Sketch extends PApplet {
         if(winnerPlus == true){
         blooWincounter+=1;
         gridFull = 9;
+        blooWin = false;
         win = false;
-        winnerPlus = false;
+        
         }
       }
     }
