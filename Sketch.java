@@ -235,17 +235,17 @@ public class Sketch extends PApplet {
     if (intGrid[0][0] == 2 && intGrid[0][1] == 2 && intGrid[0][2] == 2 && winnerPlus == false) {
       win = true;
       blooWin = true; 
-      blooWincounter+=1;
+
   }
   if (intGrid[1][0] == 2 && intGrid [1][1] == 2 && intGrid[1][2] == 2 && winnerPlus == false){
     win = true;
     blooWin = true;
-    blooWincounter+=1;
+
   }
   if (intGrid[2][0] == 2 && intGrid [2][1] == 2 && intGrid[2][2] == 2 && winnerPlus == false){
     win = true;
     blooWin = true;
-    blooWincounter+=1;
+
   }
 
   }
@@ -317,8 +317,7 @@ public class Sketch extends PApplet {
         if(winnerPlus == true){
         blooWincounter+=1;
         gridFull = 9;
-        blooWin = false;
-        win = false;
+    
         }
       }
       }
