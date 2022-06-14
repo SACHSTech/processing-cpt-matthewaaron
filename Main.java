@@ -2,7 +2,12 @@ import processing.core.PApplet;
 
 /**
  * Main class to execute sketch
- * @author 
+ * @Aaron-Chung23 
+ * @matthewyam
+ * ICS3U
+ * Processing CPT matthewaaron
+ * 2022-06-04
+ * This is a tic tac toe game for our CPT
  *
  */
 class Main {
