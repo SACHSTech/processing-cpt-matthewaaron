@@ -8,9 +8,12 @@ Be the bacterial blue or the germy green and vanquish the opposing team!
 
 Click on the board during your turn in order to place a square of your respective colour!
 
+This game follows the classic tic tac toe rules, so one would have to get three in a row, column, or diagonal to win the game!
 
 Press the B button for a choice of three amazing Royalty Free Backgrounds, a daring Dandelion, a superstitious Shopping Cart and a fabulous face!
 
 Once one team had won or there is a tie, press space bar to clear the entire board and start over!
 
 This game comes complete with a Win Counter so that you can keep track of your score against the opposing Team!
+
+Please Note: This program is not responsible for any loss of sanity while trying to defeat any of your opponents.
