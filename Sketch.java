@@ -42,7 +42,9 @@ public class Sketch extends PApplet {
 
   int [][] intGrid;
 
-
+  /**
+  * Called once at the beginning of execution, put your size all/ loading images in this method
+  */
   public void settings() {
     size(800, 800);
     uwuBg = loadImage("uwu.png");
@@ -50,7 +52,10 @@ public class Sketch extends PApplet {
     cart = loadImage("cart.png");
   }
 
-
+/**
+  * Called once at the beginning of execution.  Add initial set up
+  * values here i.e background, stroke, fill etc.
+  */
   public void setup() {
     intGrid = new int[rowCount][colCount];
     for(int x = 0; x < rowCount; x++){
@@ -61,7 +66,9 @@ public class Sketch extends PApplet {
     }
   }
 }
-
+/**
+  * Called repeatedly, anything drawn to the screen goes here
+  */
 
   public void draw() {
 
@@ -118,7 +125,9 @@ public class Sketch extends PApplet {
       }
       
   }
-  
+  /**
+  * Whenever the keys b or Space are pressed, something should happen. b changes background and space clears board. 
+  */ 
   public void keyPressed(){
 
     if (key == 'b'){
@@ -130,7 +139,8 @@ public class Sketch extends PApplet {
 
     }
 
-  //  if (key == 'l'){
+  //  Developer Hotkey
+  //if (key == 'l'){
 
     //  win = true;
    //   blooWin = true;
@@ -181,6 +191,9 @@ public class Sketch extends PApplet {
 
     
   }
+  /**
+  * Registers whether Green has won from the columns
+  */
   public void greenCols(){
     if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1 && winnerPlus == false) {
       win = true;
@@ -214,6 +227,9 @@ public class Sketch extends PApplet {
   }
 
   }
+  /**
+  * Registers whether Green has won by the rows
+  */
   public void greenRows(){
     if (intGrid[0][0] == 1 && intGrid[1][0] == 1 && intGrid[2][0] == 1 && winnerPlus == false) {
       win = true;
@@ -246,6 +262,9 @@ public class Sketch extends PApplet {
     }
     }
   }
+   /**
+  * Detects whether Green has won by the diagonals
+  */
   public void greenDiags(){
     if (intGrid[0][0] == 1 && intGrid [1][1] == 1 && intGrid[2][2] == 1 && winnerPlus == false){
       win = true;
@@ -269,6 +288,9 @@ public class Sketch extends PApplet {
       }
   
   }
+   /**
+  * Detects whether Blue has won by the Columns
+  */
   public void blooCols(){
     if (intGrid[0][0] == 2 && intGrid[0][1] == 2 && intGrid[0][2] == 2 && winnerPlus == false) {
       win = true;
@@ -302,6 +324,9 @@ public class Sketch extends PApplet {
   }
 
   }
+  /**
+  * Detects whether Blue has won by the Rows
+  */
   public void blooRows(){
     if (intGrid[0][0] == 2 && intGrid[1][0] == 2 && intGrid[2][0] == 2 && winnerPlus == false) {
       win = true;
@@ -339,6 +364,9 @@ public class Sketch extends PApplet {
 
     }
   }
+  /**
+  * Detects whether Blue has won by the Diagonals
+  */
   public void blooDiags(){
     if (intGrid[0][0] == 2 && intGrid [1][1] == 2 && intGrid[2][2] == 2 && winnerPlus == false){
       win = true;
@@ -361,6 +389,9 @@ public class Sketch extends PApplet {
         }
       }
     }
+    /**
+  * When the mouse is pressed, fill a square with either Blue or green depending on whose turn it is. 
+  */
 
   public void mousePressed(){
     
@@ -386,7 +417,9 @@ public class Sketch extends PApplet {
    
 }
   
-
+/**
+  * Win Counter to detect who has won and increase the counter on screen by 1 for the respective player. 
+  */
   public void winCounter(){
 
 
