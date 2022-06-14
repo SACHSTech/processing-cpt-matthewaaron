@@ -72,13 +72,13 @@ public class Sketch extends PApplet {
 
   public void draw() {
 
-    if(backgroundCount == 0){
+    if(backgroundCount == 2){
       image(pain, 0, 0);
     }
     if(backgroundCount == 1){
       image(cart, 0, 0);
     }
-    if(backgroundCount == 2){
+    if(backgroundCount == 0){
       image(uwuBg,0,0);
     }
     winCounter();
@@ -126,8 +126,8 @@ public class Sketch extends PApplet {
       
   }
   /**
-  * Whenever the keys b or Space are pressed, something should happen. b changes background and space clears board. 
-  */ 
+   * Detects if a key is pressed and trigger the code that the key is assinged to
+   */
   public void keyPressed(){
 
     if (key == 'b'){
@@ -192,8 +192,8 @@ public class Sketch extends PApplet {
     
   }
   /**
-  * Registers whether Green has won from the columns
-  */
+   * Check if green has 3 in a column and sets win condition
+   */
   public void greenCols(){
     if (intGrid[0][0] == 1 && intGrid[0][1] == 1 && intGrid[0][2] == 1 && winnerPlus == false) {
       win = true;
@@ -227,9 +227,9 @@ public class Sketch extends PApplet {
   }
 
   }
-  /**
-  * Registers whether Green has won by the rows
-  */
+/**
+ * Checks if green has 3 in a row and sets win condition
+ */
   public void greenRows(){
     if (intGrid[0][0] == 1 && intGrid[1][0] == 1 && intGrid[2][0] == 1 && winnerPlus == false) {
       win = true;
@@ -262,9 +262,9 @@ public class Sketch extends PApplet {
     }
     }
   }
-   /**
-  * Detects whether Green has won by the diagonals
-  */
+  /**
+   * Checks if green has 3 in a diagonal and sets win condition
+   */
   public void greenDiags(){
     if (intGrid[0][0] == 1 && intGrid [1][1] == 1 && intGrid[2][2] == 1 && winnerPlus == false){
       win = true;
@@ -288,9 +288,9 @@ public class Sketch extends PApplet {
       }
   
   }
-   /**
-  * Detects whether Blue has won by the Columns
-  */
+  /**
+   * Checks if blue has 3 in a column and sets win condition
+   */
   public void blooCols(){
     if (intGrid[0][0] == 2 && intGrid[0][1] == 2 && intGrid[0][2] == 2 && winnerPlus == false) {
       win = true;
@@ -302,6 +302,7 @@ public class Sketch extends PApplet {
       gridFull = 9;
       }
   }
+  
   if (intGrid[1][0] == 2 && intGrid [1][1] == 2 && intGrid[1][2] == 2 && winnerPlus == false){
     win = true;
     blooWin = true;
@@ -325,8 +326,8 @@ public class Sketch extends PApplet {
 
   }
   /**
-  * Detects whether Blue has won by the Rows
-  */
+   * Checks if blue has 3 in a row and sets win condition
+   */
   public void blooRows(){
     if (intGrid[0][0] == 2 && intGrid[1][0] == 2 && intGrid[2][0] == 2 && winnerPlus == false) {
       win = true;
@@ -365,8 +366,8 @@ public class Sketch extends PApplet {
     }
   }
   /**
-  * Detects whether Blue has won by the Diagonals
-  */
+   * Checks if blue has 3 in a diagonal and sets win condition
+   */
   public void blooDiags(){
     if (intGrid[0][0] == 2 && intGrid [1][1] == 2 && intGrid[2][2] == 2 && winnerPlus == false){
       win = true;
@@ -390,7 +391,7 @@ public class Sketch extends PApplet {
       }
     }
     /**
-  * When the mouse is pressed, fill a square with either Blue or green depending on whose turn it is. 
+  * Checks for when the mouse is pressed, fill a square with either Blue or green depending on whose turn it is. 
   */
 
   public void mousePressed(){
