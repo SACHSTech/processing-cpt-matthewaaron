@@ -2,10 +2,12 @@
 # Tic Tac Toe Game (3 in a row! Mouse Button to Click!)
 
 This is the absolute best Tic Tac Toe game you'll ever see!
+Extremely competitive ranked Game of Tic Tac Toe for the strong willed and strong minded!
 
-Be the bacterial blue or the germy green and defeat the opposing team!
+Be the bacterial blue or the germy green and vanquish the opposing team!
 
 Click on the board during your turn in order to place a square of your respective colour!
+
 
 Press the B button for a choice of three amazing Royalty Free Backgrounds, a daring Dandelion, a superstitious Shopping Cart and a fabulous face!
 
