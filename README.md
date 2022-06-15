@@ -48,3 +48,5 @@ Limitations
 - Only have 3 backgronds and cannot add custom one
 
 - Clicks are restricted to inside the grid
+
+- Grid is restricted to that rambunctuous red
